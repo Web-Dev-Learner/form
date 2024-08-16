@@ -1,23 +1,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import styles from './navbar.module.css';
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-500 p-4">
-      <div className="container mx-auto flex justify-between">
-        <div className="text-white text-lg font-semibold">
+    <nav className={styles.navbar}>
+      <div className={styles.container}>
+        <div className={styles.brand}>
           Form
         </div>
-        <div className="space-x-4">
+        <div className={styles.navLinks}>
           <NavLink
             to="/"
-            className={({ isActive }) => isActive ? "text-white underline" : "text-white hover:text-gray-300"}
+            className={({ isActive }) => 
+              isActive ? `${styles.navLink} ${styles.active}` : `${styles.navLink} ${styles.inactive}`
+            }
           >
             Home
           </NavLink>
           <NavLink
             to="/form"
-            className={({ isActive }) => isActive ? "text-white underline" : "text-white hover:text-gray-300"}
+            className={({ isActive }) => 
+              isActive ? `${styles.navLink} ${styles.active}` : `${styles.navLink} ${styles.inactive}`
+            }
           >
             Form
           </NavLink>
@@ -28,3 +33,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

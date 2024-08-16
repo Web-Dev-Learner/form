@@ -10,13 +10,19 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gray-100 flex">
         <Sidebar />
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col">
           <Navbar />
-          <div className="p-4">
+          <div className="flex-grow flex items-start justify-center p-4">
             <Routes>
-              <Route path="/" element={<h1 className="text-3xl font-bold text-blue-800">Welcome to FormCraft</h1>} />
+              <Route 
+                path="/" 
+                element={
+                  <h1 className="text-3xl font-bold text-purple-800 text-center mt-10">
+                    Welcome to FormCraft
+                  </h1>
+                } 
+              />
               <Route path="/form" element={<Form />} />
-             
             </Routes>
           </div>
         </div>
@@ -26,5 +32,3 @@ function App() {
 }
 
 export default App;
-
-
