@@ -1,0 +1,71 @@
+/* document.module.css */
+.container {
+    width: 100%;
+    max-width: 28rem; /* Equivalent to max-w-md */
+    padding: 2rem; /* Equivalent to p-8 */
+    background-color: #edf2f7; /* Equivalent to bg-gray-200 */
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
+    margin-top: 2.5rem; /* Equivalent to mt-10 */
+    transition: transform 0.2s;
+  }
+  
+  .container:hover {
+    transform: scale(1.05); /* Equivalent to hover:scale-105 */
+  }
+  
+  .title {
+    font-size: 1.5rem; /* Equivalent to text-2xl */
+    font-weight: bold; /* Equivalent to font-bold */
+    margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+    text-align: center;
+    color: #2b6cb0; /* Equivalent to text-blue-800 */
+  }
+  
+  .formField {
+    margin-bottom: 1rem; /* Equivalent to mb-4 */
+  }
+  
+  .label {
+    display: block;
+    color: #1a202c; /* Equivalent to text-gray-800 */
+    font-weight: 600; /* Equivalent to font-semibold */
+    margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+  }
+  
+  .input, .select {
+    width: 100%;
+    padding: 1rem; /* Equivalent to p-4 */
+    border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    color: #1a202c; /* Equivalent to text-gray-800 */
+  }
+  
+  .input:focus, .select:focus {
+    outline: none;
+    ring: 2px solid #3b82f6; /* Equivalent to focus:ring-blue-500 */
+  }
+  
+  .inputError, .selectError {
+    border-color: #ef4444; /* Equivalent to border-red-500 */
+  }
+  
+  .error {
+    color: #ef4444; /* Equivalent to text-red-500 */
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    margin-top: 0.25rem; /* Equivalent to mt-1 */
+  }
+  
+  .submitButton {
+    width: 100%;
+    background-color: #3b82f6; /* Equivalent to bg-blue-500 */
+    color: white;
+    padding: 1rem; /* Equivalent to p-4 */
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    font-weight: 600; /* Equivalent to font-semibold */
+  }
+  
+  .submitButton:hover {
+    background-color: #2563eb; /* Equivalent to hover:bg-blue-600 */
+  }
+  
