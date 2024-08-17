@@ -28,7 +28,7 @@
 
 .menuText {
   font-size: 1rem;
-  margin-right: 0.75rem; /* Space between the text and the icon */
+  margin-right: 0.75rem; 
   white-space: nowrap;
 }
 
@@ -66,19 +66,19 @@
 }
 
 .closed .icon {
-  font-size: 1.5rem; /* Larger icon size when sidebar is closed */
+  font-size: 1.5rem; 
 }
 
 .text {
   font-size: 1rem;
-  margin-left: 0.75rem; /* Space between the icon and the text */
+  margin-left: 0.75rem; 
   white-space: nowrap;
   opacity: 1; 
   transition: opacity 0.3s ease;
 }
 
 .closed .text {
-  opacity: 0; /* Hide text when sidebar is closed */
+  opacity: 0; 
 }
 
 @media (max-width: 760px) {
