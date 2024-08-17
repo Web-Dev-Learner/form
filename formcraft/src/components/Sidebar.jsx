@@ -19,6 +19,7 @@ const Sidebar = () => {
           <FaBars />
         </div>
       </div>
+
       <div className={styles.menuItems}>
         <NavLink
           to="/"
@@ -29,6 +30,7 @@ const Sidebar = () => {
           <FaHome className={styles.icon} />
           {isOpen && <span className={styles.text}>Home</span>}
         </NavLink>
+
         <NavLink
           to="/form"
           className={({ isActive }) =>
@@ -38,6 +40,7 @@ const Sidebar = () => {
           <FaWpforms className={styles.icon} />
           {isOpen && <span className={styles.text}>Form</span>}
         </NavLink>
+        
       </div>
     </aside>
   );
