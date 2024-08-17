@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Form from './components/Form';
 import './index.css';
@@ -11,7 +10,6 @@ function App() {
       <div className="min-h-screen bg-gray-100 flex">
         <Sidebar />
         <div className="flex-1 flex flex-col">
-          <Navbar />
           <div className="flex-grow flex items-start justify-center p-4">
             <Routes>
               <Route 
