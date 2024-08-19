@@ -1,19 +1,27 @@
-// src/components/Sidebar.jsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaHome, FaWpforms, FaEnvelope } from 'react-icons/fa';
-import './Sidebar.scss'; // Update the path as needed
+import { FaHome, FaWpforms, FaEnvelope, FaBars } from 'react-icons/fa';
+import './Sidebar.scss'; // Ensure the path is correct
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       <button onClick={toggleSidebar} className="toggle-btn">
-        {isOpen ? 'Close' : 'Open'} Sidebar
+        <FaBars className="menu-icon" />
       </button>
-      <nav>
-        <NavLink to="/" className="link"><FaHome /> Home</NavLink>
-        <NavLink to="/form" className="link"><FaWpforms /> Form</NavLink>
-        <NavLink to="/client-details" className="link"><FaEnvelope /> Client Details</NavLink>
+      <nav className="nav">
+        <NavLink to="/" className="link">
+          <FaHome className="icon" />
+          {isOpen && <span className="text">Home</span>}
+        </NavLink>
+        <NavLink to="/form" className="link">
+          <FaWpforms className="icon" />
+          {isOpen && <span className="text">Form</span>}
+        </NavLink>
+        <NavLink to="/client-details" className="link">
+          <FaEnvelope className="icon" />
+          {isOpen && <span className="text">Client Details</span>}
+        </NavLink>
       </nav>
     </aside>
   );
