@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFormData, loadFormDataFromLocalStorage } from '../features/formSlice';
+import { setFormData, loadFormDataFromLocalStorage } from '../redux/formSlice';
 
 const Form = () => {
   const dispatch = useDispatch();
