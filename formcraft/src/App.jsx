@@ -1,37 +1,45 @@
-import React from 'react';
+// src/App.jsx
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Navbar from './components/Navbar';
+import TopNavbar from './components/TopNavbar';
+import Home from './components/Home'; // Replace with your Home component
+import Form from './components/Form'; // Replace with your Form component
 import ClientDetails from './components/ClientDetails';
 import Email from './components/Email';
-import Notes from './components/Notes';
 import Files from './components/Files';
 import Jobs from './components/Jobs';
-import Form from './components/Form';
-import './index.css';
+import Notes from './components/Notes';
 
-function App() {
+const App = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <Router>
-      <div className="min-h-screen bg-gray-100 flex">
-        <Sidebar />
-        <div className="flex-1 flex flex-col">
-          <Navbar />
-          <div className="flex-grow p-4">
+      <div className="flex">
+        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+        <div className="flex-1">
+          <TopNavbar clientName="John Doe" />
+          <div className="p-4">
             <Routes>
-              <Route path="/" element={<ClientDetails />} />
+              <Route path="/" element={<Home />} />
               <Route path="/form" element={<Form />} />
+              <Route path="/client-details" element={<ClientDetails />} />
               <Route path="/email" element={<Email />} />
-              <Route path="/notes" element={<Notes />} />
               <Route path="/files" element={<Files />} />
               <Route path="/jobs" element={<Jobs />} />
+              <Route path="/notes" element={<Notes />} />
             </Routes>
           </div>
         </div>
       </div>
     </Router>
   );
-}
+};
 
 export default App;
 

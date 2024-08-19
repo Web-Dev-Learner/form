@@ -1,56 +1,20 @@
-import React, { useState } from 'react';
+// src/components/Sidebar.jsx
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaBars, FaHome, FaWpforms, FaEnvelope, FaEdit, FaEllipsisV } from 'react-icons/fa';
-import styles from './sidebar.module.css';
+import { FaHome, FaWpforms, FaEnvelope } from 'react-icons/fa';
+import './Sidebar.scss'; // Update the path as needed
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
-    <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
-      <div className={styles.menuHeader}>
-        {isOpen && <span className={styles.menuText}>Menu</span>}
-        <div className={styles.menuIcon} onClick={toggleSidebar}>
-          <FaBars />
-        </div>
-      </div>
-
-      <div className={styles.clientDetails}>
-        <h2 className="text-xl font-semibold mb-2">Client Details</h2>
-        <p className="text-gray-600">Name: John Doe</p>
-        <p className="text-gray-600">Email: john@example.com</p>
-      </div>
-
-      <div className={styles.menuItems}>
-        <NavLink to="/" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : `${styles.link}`}>
-          <FaHome className={styles.icon} />
-          {isOpen && <span className={styles.text}>Home</span>}
-        </NavLink>
-
-        <NavLink to="/form" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : `${styles.link}`}>
-          <FaWpforms className={styles.icon} />
-          {isOpen && <span className={styles.text}>Form</span>}
-        </NavLink>
-
-        <NavLink to="/email" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : `${styles.link}`}>
-          <FaEnvelope className={styles.icon} />
-          {isOpen && <span className={styles.text}>Send Email</span>}
-        </NavLink>
-
-        <NavLink to="/notes" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : `${styles.link}`}>
-          <FaEdit className={styles.icon} />
-          {isOpen && <span className={styles.text}>Notes</span>}
-        </NavLink>
-
-        <NavLink to="/files" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : `${styles.link}`}>
-          <FaEllipsisV className={styles.icon} />
-          {isOpen && <span className={styles.text}>Files</span>}
-        </NavLink>
-      </div>
+    <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
+      <button onClick={toggleSidebar} className="toggle-btn">
+        {isOpen ? 'Close' : 'Open'} Sidebar
+      </button>
+      <nav>
+        <NavLink to="/" className="link"><FaHome /> Home</NavLink>
+        <NavLink to="/form" className="link"><FaWpforms /> Form</NavLink>
+        <NavLink to="/client-details" className="link"><FaEnvelope /> Client Details</NavLink>
+      </nav>
     </aside>
   );
 };

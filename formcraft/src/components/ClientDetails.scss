@@ -1,0 +1,32 @@
+// src/components/ClientDetails.scss
+.client-details {
+  display: flex;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 300px;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+.actions {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.action-item:hover {
+  color: #007bff;
+}
+
+.icon {
+  margin-right: 10px;
+}
