@@ -1,13 +1,12 @@
-// src/components/Home.jsx
 import React from 'react';
 
 const Home = () => {
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Home</h2>
-      <p>Welcome to the Home page.</p>
+    <div className="home-page">
+      <h1>Welcome to Form Craft</h1>
     </div>
   );
 };
 
 export default Home;
+

@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaEnvelope, FaEdit, FaEllipsisV } from 'react-icons/fa';
-import './TopNavbar.scss';
+
+import "../styles/TopNavBar.scss";
+
 
 const TopNavbar = ({ clientName }) => {
   return (

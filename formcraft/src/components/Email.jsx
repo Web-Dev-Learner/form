@@ -2,11 +2,12 @@ import React from 'react';
 
 const Email = () => {
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Send Email</h2>
-      <p>Send email on 21 July 2024</p>
+    <div className="email-page">
+      <h2>Email</h2>
+      <p>This is the email page where you can send emails to the client.</p>
     </div>
   );
 };
 
 export default Email;
+

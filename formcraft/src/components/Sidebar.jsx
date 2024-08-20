@@ -1,33 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaBars, FaHome, FaUser } from 'react-icons/fa';
-import './Sidebar.scss'; // Use SCSS for styling
+import { FaBars, FaHome, FaWpforms, FaUser } from 'react-icons/fa';
+import '../styles/sidebar.scss';
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       <div className="menu-header">
-        {isOpen && <span className="menu-text">Menu</span>}
-        <div className="menu-icon" onClick={toggleSidebar}>
+        <span className="menu-icon" onClick={toggleSidebar}>
           <FaBars />
-        </div>
+        </span>
       </div>
-
       <div className="menu-items">
         <NavLink to="/" className="link" activeClassName="active">
           <FaHome className="icon" />
           {isOpen && <span className="text">Home</span>}
         </NavLink>
-
         <NavLink to="/client-details" className="link" activeClassName="active">
           <FaUser className="icon" />
           {isOpen && <span className="text">Client Details</span>}
+        </NavLink>
+        <NavLink to="/form" className="link" activeClassName="active">
+          <FaWpforms className="icon" />
+          {isOpen && <span className="text">Form</span>}
         </NavLink>
       </div>
     </aside>
@@ -35,6 +30,7 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
 
 
 
