@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FaInfoCircle } from 'react-icons/fa';
 // import './ClientDetails.scss';
