@@ -1,33 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaHome, FaWpforms, FaEnvelope, FaBars } from 'react-icons/fa';
-import './Sidebar.scss'; // Ensure the path is correct
+import { FaBars, FaHome, FaUser } from 'react-icons/fa';
+import './Sidebar.scss'; // Use SCSS for styling
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
+const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-      <button onClick={toggleSidebar} className="toggle-btn">
-        <FaBars className="menu-icon" />
-      </button>
-      <nav className="nav">
-        <NavLink to="/" className="link">
+      <div className="menu-header">
+        {isOpen && <span className="menu-text">Menu</span>}
+        <div className="menu-icon" onClick={toggleSidebar}>
+          <FaBars />
+        </div>
+      </div>
+
+      <div className="menu-items">
+        <NavLink to="/" className="link" activeClassName="active">
           <FaHome className="icon" />
           {isOpen && <span className="text">Home</span>}
         </NavLink>
-        <NavLink to="/form" className="link">
-          <FaWpforms className="icon" />
-          {isOpen && <span className="text">Form</span>}
-        </NavLink>
-        <NavLink to="/client-details" className="link">
-          <FaEnvelope className="icon" />
+
+        <NavLink to="/client-details" className="link" activeClassName="active">
+          <FaUser className="icon" />
           {isOpen && <span className="text">Client Details</span>}
         </NavLink>
-      </nav>
+      </div>
     </aside>
   );
 };
 
 export default Sidebar;
+
 
 
 

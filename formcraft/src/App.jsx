@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import TopNavbar from './components/TopNavbar';
-import Home from './components/Home'; // Replace with your Home component
-import Form from './components/Form'; // Replace with your Form component
+import Home from './components/Home';
+import Form from './components/Form';
 import ClientDetails from './components/ClientDetails';
 import Email from './components/Email';
 import Files from './components/Files';
@@ -42,4 +42,3 @@ const App = () => {
 };
 
 export default App;
-

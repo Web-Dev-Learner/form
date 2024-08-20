@@ -1,27 +1,25 @@
-// src/components/TopNavbar.jsx
 import React from 'react';
 import { FaEnvelope, FaEdit, FaEllipsisV } from 'react-icons/fa';
+import './TopNavbar.scss';
 
 const TopNavbar = ({ clientName }) => {
   return (
-    <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
-      <div className="flex items-center">
-        <img src="/path/to/logo.png" alt="Logo" className="w-8 h-8 mr-2" />
-        <span className="text-xl font-semibold">{clientName}</span>
+    <div className="top-navbar">
+      <div className="logo">
+        {/* Your Logo */}
       </div>
-      <div className="flex items-center space-x-4">
-        <button className="flex items-center">
-          <FaEnvelope className="mr-2" /> Send Email
-        </button>
-        <button className="flex items-center">
-          <FaEdit className="mr-2" /> Edit
-        </button>
-        <button className="flex items-center">
-          <FaEllipsisV />
-        </button>
+      <div className="client-name">
+        {clientName}
+      </div>
+      <div className="actions">
+        <FaEnvelope className="action-icon" />
+        <FaEdit className="action-icon" />
+        <FaEllipsisV className="action-icon" />
       </div>
     </div>
   );
 };
 
 export default TopNavbar;
+
+
