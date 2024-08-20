@@ -1,8 +1,6 @@
 import React from 'react';
 import { FaEnvelope, FaEdit, FaEllipsisV } from 'react-icons/fa';
-
 import "../styles/TopNavBar.scss";
-
 
 const TopNavbar = ({ clientName }) => {
   return (
@@ -10,9 +8,11 @@ const TopNavbar = ({ clientName }) => {
       <div className="logo">
         {/* Your Logo */}
       </div>
-      <div className="client-name">
-        {clientName}
-      </div>
+      {clientName && (
+        <div className="client-name">
+          {clientName}
+        </div>
+      )}
       <div className="actions">
         <FaEnvelope className="action-icon" />
         <FaEdit className="action-icon" />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import TopNavbar from './components/TopNavbar';
 import Home from './components/Home';
@@ -22,7 +22,7 @@ const App = () => {
       <div className="flex">
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         <div className="flex-1">
-          <TopNavbar clientName="John Doe" />
+          <TopNavbarWrapper />
           <div className="p-4">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -37,6 +37,18 @@ const App = () => {
         </div>
       </div>
     </Router>
+  );
+};
+
+// Wrapper component to manage TopNavbar clientName based on route
+const TopNavbarWrapper = () => {
+  const location = useLocation();
+  
+  // Determine if "Client Details" is the active route
+  const isClientDetailsActive = location.pathname === '/client-details';
+
+  return (
+    <TopNavbar clientName={isClientDetailsActive ? 'John Doe' : ''} />
   );
 };
 

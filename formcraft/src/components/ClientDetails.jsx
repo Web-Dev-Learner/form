@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaEnvelope, FaEdit, FaEllipsisV } from 'react-icons/fa';
+
 import BasicDetails from './BasicDetails'; // Renamed to BasicDetails
 import CompanyDetails from './CompanyDetails'; // Renamed to CompanyDetails
 import OtherDetails from './OtherDetails';
