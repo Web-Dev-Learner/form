@@ -7,9 +7,10 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       <div className="menu-header">
-        <span className="menu-icon" onClick={toggleSidebar}>
+        <span className="menu-icon" onClick={toggleSidebar}> 
           <FaBars />
         </span>
+        {isOpen && <span className="text">Menu</span>}
       </div>
       <div className="menu-items">
         <NavLink to="/" className="link" activeClassName="active">

@@ -10,14 +10,7 @@ import "../styles/ClientDetails.scss"; // Correct import path for your SCSS file
 const ClientDetails = () => {
   return (
     <div className="client-details">
-      <div className="client-header">
-        <h2 className="client-name">John Doe</h2>
-        <div className="client-actions">
-          <FaEnvelope />
-          <FaEdit />
-          <FaEllipsisV />
-        </div>
-      </div>
+   
       <div className="client-details-content">
         <BasicDetails />
         <CompanyDetails />
