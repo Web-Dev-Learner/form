@@ -13,15 +13,24 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         {isOpen && <span className="text">Menu</span>}
       </div>
       <div className="menu-items">
-        <NavLink to="/" className="link" activeClassName="active">
+        <NavLink 
+          to="/" 
+          className={({ isActive }) => isActive ? 'link active' : 'link'}
+        >
           <FaHome className="icon" />
           {isOpen && <span className="text">Home</span>}
         </NavLink>
-        <NavLink to="/client-details" className="link" activeClassName="active">
+        <NavLink 
+          to="/client-details" 
+          className={({ isActive }) => isActive ? 'link active' : 'link'}
+        >
           <FaUser className="icon" />
           {isOpen && <span className="text">Client Details</span>}
         </NavLink>
-        <NavLink to="/form" className="link" activeClassName="active">
+        <NavLink 
+          to="/form" 
+          className={({ isActive }) => isActive ? 'link active' : 'link'}
+        >
           <FaWpforms className="icon" />
           {isOpen && <span className="text">Form</span>}
         </NavLink>
