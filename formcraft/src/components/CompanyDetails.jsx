@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaBuilding, FaEnvelope, FaPhone, FaUser } from 'react-icons/fa';
 import "../styles/ClientDetails.scss";
 
 const CompanyDetails = () => {
+  const [activeSection, setActiveSection] = useState(null);
+
+  const handleSidebarClick = (section) => {
+    setActiveSection(section);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      // Handle file upload here
+      console.log("Dropped files:", files);
+    }
+  };
+
+  const handleClick = () => {
+    document.getElementById('fileInput').click();
+  };
+
+  const handleFileChange = (e) => {
+    const files = e.target.files;
+    if (files.length > 0) {
+      // Handle file upload here
+      console.log("Selected files:", files);
+    }
+  };
+
   return (
     <div className="company-details-container">
       <div className="details-and-sidebar">
@@ -33,20 +60,57 @@ const CompanyDetails = () => {
             </div>
           </div>
 
-          
-
+          {/* Other details if needed */}
         </div>
 
         <div className="sidebar-section">
-          <div className="sidebar-item">Timeline</div>
-          <div className="sidebar-item">Email</div>
-          <div className="sidebar-item">Files</div>
-          <div className="sidebar-item">Jobs</div>
+          <div
+            className={`sidebar-item ${activeSection === 'timeline' ? 'active' : ''}`}
+            onClick={() => handleSidebarClick('timeline')}
+          >
+            Timeline
+          </div>
+          <div
+            className={`sidebar-item ${activeSection === 'email' ? 'active' : ''}`}
+            onClick={() => handleSidebarClick('email')}
+          >
+            Email
+          </div>
+          <div
+            className={`sidebar-item ${activeSection === 'files' ? 'active' : ''}`}
+            onClick={() => handleSidebarClick('files')}
+          >
+            Files
+          </div>
+          <div
+            className={`sidebar-item ${activeSection === 'jobs' ? 'active' : ''}`}
+            onClick={() => handleSidebarClick('jobs')}
+          >
+            Jobs
+          </div>
         </div>
       </div>
+
+      {activeSection === 'files' && (
+        <div className="file-upload-section"
+          onDrop={handleDrop}
+          onDragOver={(e) => e.preventDefault()}
+          onClick={handleClick}
+        >
+          <input
+            type="file"
+            id="fileInput"
+            style={{ display: 'none' }}
+            onChange={handleFileChange}
+            multiple
+          />
+          <p>Drag & drop files here or click to select files</p>
+        </div>
+      )}
     </div>
   );
 };
 
 export default CompanyDetails;
+
 
