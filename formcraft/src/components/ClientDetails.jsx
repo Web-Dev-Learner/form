@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import BasicDetails from './BasicDetails'; // Import BasicDetails
 import CompanyDetails from './CompanyDetails'; // Import CompanyDetails
-import Files from './Files'; // Import Files
-import Notes from './Notes'; // Import Notes
-import Timeline from './Timeline'; // Import Timeline
 import "../styles/ClientDetails.scss"; // Correct import path for your SCSS file
 
 const ClientDetails = () => {
@@ -16,38 +13,46 @@ const ClientDetails = () => {
   return (
     <div className="client-details">
       <div className="sidebar-section">
+        <div>Basic details</div>
+        <div
+          className={`sidebar-item ${activeSection === 'timeline' ? 'active' : ''}`}
+          onClick={() => handleSidebarClick('timeline')}
+        >
+          
+        </div>
         <div
           className={`sidebar-item ${activeSection === 'files' ? 'active' : ''}`}
           onClick={() => handleSidebarClick('files')}
         >
-          Files
+         
         </div>
         <div
           className={`sidebar-item ${activeSection === 'notes' ? 'active' : ''}`}
           onClick={() => handleSidebarClick('notes')}
         >
-          Notes
+         
         </div>
         <div
-          className={`sidebar-item ${activeSection === 'timeline' ? 'active' : ''}`}
-          onClick={() => handleSidebarClick('timeline')}
+          className={`sidebar-item ${activeSection === 'jobs' ? 'active' : ''}`}
+          onClick={() => handleSidebarClick('jobs')}
         >
-          Timeline
+          
         </div>
       </div>
 
       <div className="client-details-content">
-        <BasicDetails />
         <CompanyDetails />
-        {activeSection === 'files' && <Files />}
-        {activeSection === 'notes' && <Notes />}
-        {activeSection === 'timeline' && <Timeline />}
+        {activeSection === 'timeline' && <div>Timeline content here</div>}
+        {activeSection === 'files' && <div>Files content here</div>}
+        {activeSection === 'notes' && <div>Notes content here</div>}
+        {activeSection === 'jobs' && <div>Jobs content here</div>}
       </div>
     </div>
   );
 };
 
 export default ClientDetails;
+
 
 
 
