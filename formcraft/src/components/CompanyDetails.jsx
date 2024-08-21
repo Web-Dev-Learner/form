@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { FaBuilding, FaEnvelope, FaPhone, FaUser, FaStickyNote } from 'react-icons/fa';
+import { FaBuilding, FaEnvelope, FaPhone, FaUser, FaStickyNote, FaCalendarAlt } from 'react-icons/fa';
 import Files from '../components/Files'; // Correct import path
 import Notes from '../components/Notes'; // Correct import path
-import "../styles/ClientDetails.scss";
+import Timeline from '../components/Timeline'; // Correct import path
+import "../styles/ClientDetails.scss"; // Correct import path
 
 const CompanyDetails = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -47,7 +48,7 @@ const CompanyDetails = () => {
             className={`sidebar-item ${activeSection === 'timeline' ? 'active' : ''}`}
             onClick={() => handleSidebarClick('timeline')}
           >
-            Timeline
+            <FaCalendarAlt className="icon" /> Timeline
           </div>
           
           <div
@@ -73,13 +74,47 @@ const CompanyDetails = () => {
         </div>
       </div>
 
+      {/* Always visible sections */}
+      <div className="default-sections">
+        <div className="basic-details-container">
+          <h2 className="section-title">Basic Details</h2>
+          <div className="detail-item">
+            <FaUser className="icon" /> <span>Name: John Doe</span>
+          </div>
+          <div className="detail-item">
+            <FaEnvelope className="icon" /> <span>Email: john.doe@example.com</span>
+          </div>
+          <div className="detail-item">
+            <FaPhone className="icon" /> <span>Phone: +1234567890</span>
+          </div>
+        </div>
+
+        <div className="company-details-section">
+          <h2 className="section-title">Company Details</h2>
+          <div className="detail-item">
+            <FaBuilding className="icon" /> <span>Company: ABC Corp</span>
+          </div>
+          <div className="detail-item">
+            <FaEnvelope className="icon" /> <span>Email: contact@abccorp.com</span>
+          </div>
+          <div className="detail-item">
+            <FaPhone className="icon" /> <span>Phone: +1987654321</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Conditionally rendered sections */}
+      {activeSection === 'timeline' && <Timeline />}
       {activeSection === 'files' && <Files />}
       {activeSection === 'notes' && <Notes />}
+      {/* Add Jobs component if you have one */}
     </div>
   );
 };
 
 export default CompanyDetails;
+
+
 
 
 
