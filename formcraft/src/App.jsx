@@ -5,7 +5,7 @@ import TopNavbar from './components/TopNavbar';
 import Home from './components/Home';
 import Form from './components/Form';
 import ClientDetails from './components/ClientDetails';
-import Email from './components/Email';
+
 import Files from './components/Files';
 import Jobs from './components/Jobs';
 import Notes from './components/Notes';
@@ -28,7 +28,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/form" element={<Form />} />
               <Route path="/client-details" element={<ClientDetails />} />
-              <Route path="/email" element={<Email />} />
+             
               <Route path="/files" element={<Files />} />
               <Route path="/jobs" element={<Jobs />} />
               <Route path="/notes" element={<Notes />} />

@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
-import { FaBuilding, FaEnvelope, FaPhone, FaUser } from 'react-icons/fa';
+import { FaBuilding, FaEnvelope, FaPhone, FaUser, FaStickyNote } from 'react-icons/fa';
 import Files from '../components/Files'; // Correct import path
+import Notes from '../components/Notes'; // Correct import path
 import "../styles/ClientDetails.scss";
 
 const CompanyDetails = () => {
@@ -49,18 +49,21 @@ const CompanyDetails = () => {
           >
             Timeline
           </div>
-          <div
-            className={`sidebar-item ${activeSection === 'email' ? 'active' : ''}`}
-            onClick={() => handleSidebarClick('email')}
-          >
-            Email
-          </div>
+          
           <div
             className={`sidebar-item ${activeSection === 'files' ? 'active' : ''}`}
             onClick={() => handleSidebarClick('files')}
           >
             Files
           </div>
+          
+          <div
+            className={`sidebar-item ${activeSection === 'notes' ? 'active' : ''}`}
+            onClick={() => handleSidebarClick('notes')}
+          >
+            <FaStickyNote className="icon" /> Notes
+          </div>
+          
           <div
             className={`sidebar-item ${activeSection === 'jobs' ? 'active' : ''}`}
             onClick={() => handleSidebarClick('jobs')}
@@ -71,10 +74,12 @@ const CompanyDetails = () => {
       </div>
 
       {activeSection === 'files' && <Files />}
+      {activeSection === 'notes' && <Notes />}
     </div>
   );
 };
 
 export default CompanyDetails;
+
 
 
