@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
 import { FaBuilding, FaEnvelope, FaPhone, FaUser } from 'react-icons/fa';
+import Files from '../components/Files'; // Correct import path
 import "../styles/ClientDetails.scss";
 
 const CompanyDetails = () => {
@@ -7,27 +9,6 @@ const CompanyDetails = () => {
 
   const handleSidebarClick = (section) => {
     setActiveSection(section);
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-      // Handle file upload here
-      console.log("Dropped files:", files);
-    }
-  };
-
-  const handleClick = () => {
-    document.getElementById('fileInput').click();
-  };
-
-  const handleFileChange = (e) => {
-    const files = e.target.files;
-    if (files.length > 0) {
-      // Handle file upload here
-      console.log("Selected files:", files);
-    }
   };
 
   return (
@@ -59,8 +40,6 @@ const CompanyDetails = () => {
               <FaPhone className="icon" /> <span>Phone: +1987654321</span>
             </div>
           </div>
-
-          {/* Other details if needed */}
         </div>
 
         <div className="sidebar-section">
@@ -91,22 +70,7 @@ const CompanyDetails = () => {
         </div>
       </div>
 
-      {activeSection === 'files' && (
-        <div className="file-upload-section"
-          onDrop={handleDrop}
-          onDragOver={(e) => e.preventDefault()}
-          onClick={handleClick}
-        >
-          <input
-            type="file"
-            id="fileInput"
-            style={{ display: 'none' }}
-            onChange={handleFileChange}
-            multiple
-          />
-          <p>Drag & drop files here or click to select files</p>
-        </div>
-      )}
+      {activeSection === 'files' && <Files />}
     </div>
   );
 };
