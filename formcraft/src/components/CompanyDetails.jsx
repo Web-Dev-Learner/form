@@ -3,6 +3,7 @@ import { FaBuilding, FaEnvelope, FaPhone, FaUser, FaStickyNote, FaCalendarAlt, F
 import Files from './Files'; // Correct import path
 import Notes from './Notes'; // Correct import path
 import Timeline from './Timeline'; // Correct import path
+import Jobs from './Jobs'; // Import Jobs component
 import "../styles/ClientDetails.scss"; // Correct import path
 
 const CompanyDetails = () => {
@@ -80,12 +81,13 @@ const CompanyDetails = () => {
       {activeSection === 'timeline' && <Timeline />}
       {activeSection === 'files' && <Files />}
       {activeSection === 'notes' && <Notes />}
-      {activeSection === 'jobs' && <div>Jobs content here</div>}
+      {activeSection === 'jobs' && <Jobs />} {/* Display Jobs component here */}
     </div>
   );
 };
 
 export default CompanyDetails;
+
 
 
 

@@ -38,7 +38,7 @@ const Files = () => {
   };
 
   const handleClick = () => {
-    console.log("File input clicked"); // Debugging: Confirm input click event
+    // console.log("File input clicked"); // Debugging: Confirm input click event
     fileInputRef.current.click();
   };
 
