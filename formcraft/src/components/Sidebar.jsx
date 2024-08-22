@@ -18,8 +18,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '80%',
-    maxHeight: '90vh', // Ensure scrollable if content is too long
-    overflowY: 'auto', // Enable vertical scrolling
+    maxHeight: '90vh', 
+    overflowY: 'auto', 
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
