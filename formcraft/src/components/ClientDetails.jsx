@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import BasicDetails from './BasicDetails'; // Import BasicDetails
-import CompanyDetails from './CompanyDetails'; // Import CompanyDetails
-import "../styles/ClientDetails.scss"; // Correct import path for your SCSS file
+// import BasicDetails from './BasicDetails'; // Import BasicDetails
+import CompanyDetails from './CompanyDetails'; 
+import "../styles/ClientDetails.scss"; 
 
 const ClientDetails = () => {
   const [activeSection, setActiveSection] = useState(null);
 
   const handleSidebarClick = (section) => {
-    setActiveSection(prevSection => (prevSection === section ? null : section)); // Toggle between null and section
+    setActiveSection(prevSection => (prevSection === section ? null : section)); 
   };
 
   return (

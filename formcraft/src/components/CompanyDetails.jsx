@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { FaBuilding, FaEnvelope, FaPhone, FaUser, FaStickyNote, FaCalendarAlt, FaFileAlt, FaBriefcase } from 'react-icons/fa';
-import Files from './Files'; // Correct import path
-import Notes from './Notes'; // Correct import path
-import Timeline from './Timeline'; // Correct import path
-import Jobs from './Jobs'; // Import Jobs component
-import "../styles/ClientDetails.scss"; // Correct import path
+import Files from './Files'; 
+import Notes from './Notes'; 
+import Timeline from './Timeline'; 
+import Jobs from './Jobs'; 
+import "../styles/ClientDetails.scss"; 
 
 const CompanyDetails = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -81,7 +81,7 @@ const CompanyDetails = () => {
       {activeSection === 'timeline' && <Timeline />}
       {activeSection === 'files' && <Files />}
       {activeSection === 'notes' && <Notes />}
-      {activeSection === 'jobs' && <Jobs />} {/* Display Jobs component here */}
+      {activeSection === 'jobs' && <Jobs />} 
     </div>
   );
 };
