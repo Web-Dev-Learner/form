@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaBars, FaHome, FaWpforms, FaUser } from 'react-icons/fa';
-import '../styles/sidebar.scss';
+import '../styles/Sidebar.scss';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
