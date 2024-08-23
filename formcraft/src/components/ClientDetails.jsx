@@ -35,43 +35,56 @@ const ClientDetails = () => {
 
   return (
     <div className="client-details">
-      <div className="sidebar-section">
-        <div
-          className="sidebar-item"
-          onClick={() => handleSidebarClick('clientDetails')}
-        >
-          Client Details
+      {/* Main Content Area */}
+      <div className="content-area">
+        <div className="sidebar-section">
+          <div
+            className="sidebar-item"
+            onClick={() => handleSidebarClick('clientDetails')}
+          >
+            Client Details
+          </div>
+          <nav className="small-navbar">
+            <div
+              className={`navbar-item ${activeSection === 'timeline' ? 'active' : ''}`}
+              onClick={() => handleSidebarClick('timeline')}
+            >
+              Timeline
+            </div>
+            <div
+              className={`navbar-item ${activeSection === 'files' ? 'active' : ''}`}
+              onClick={() => handleSidebarClick('files')}
+            >
+              Files
+            </div>
+            <div
+              className={`navbar-item ${activeSection === 'notes' ? 'active' : ''}`}
+              onClick={() => handleSidebarClick('notes')}
+            >
+              Notes
+            </div>
+            <div
+              className={`navbar-item ${activeSection === 'jobs' ? 'active' : ''}`}
+              onClick={() => handleSidebarClick('jobs')}
+            >
+              Jobs
+            </div>
+          </nav>
         </div>
-        <div
-          className={`sidebar-item ${activeSection === 'timeline' ? 'active' : ''}`}
-          onClick={() => handleSidebarClick('timeline')}
-        >
-          Timeline
-        </div>
-        <div
-          className={`sidebar-item ${activeSection === 'files' ? 'active' : ''}`}
-          onClick={() => handleSidebarClick('files')}
-        >
-          Files
-        </div>
-        <div
-          className={`sidebar-item ${activeSection === 'notes' ? 'active' : ''}`}
-          onClick={() => handleSidebarClick('notes')}
-        >
-          Notes
-        </div>
-        <div
-          className={`sidebar-item ${activeSection === 'jobs' ? 'active' : ''}`}
-          onClick={() => handleSidebarClick('jobs')}
-        >
-          Jobs
+
+        {/* Dynamic Content Section */}
+        <div className="details-section">
+          {activeSection === 'timeline' && <Timeline />}
+          {activeSection === 'files' && <Files />}
+          {activeSection === 'notes' && <Notes />}
+          {activeSection === 'jobs' && <Jobs />}
         </div>
       </div>
 
+      {/* Modal for Client Details */}
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
           <CompanyDetails />
-          <button onClick={handleClose} style={{ position: 'absolute', top: 10, right: 10 }}>X</button>
         </Box>
       </Modal>
     </div>
@@ -79,6 +92,7 @@ const ClientDetails = () => {
 };
 
 export default ClientDetails;
+
 
 
 
