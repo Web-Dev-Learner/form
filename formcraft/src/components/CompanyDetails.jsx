@@ -6,88 +6,79 @@ import Timeline from './Timeline';
 import Jobs from './Jobs'; 
 
 const CompanyDetails = () => {
-  const [activeSection, setActiveSection] = useState('timeline'); // Default section is 'timeline'
+  const [activeSection, setActiveSection] = useState('timeline');
 
-  const handleSidebarClick = (section) => {
+  const handleNavbarClick = (section) => {
     setActiveSection(section);
   };
 
   return (
-    <div className="flex space-x-4 p-4">
-      {/* Left Side: Details */}
-      <div className="flex-1 space-y-4">
-        <div className="p-4 border border-gray-300 rounded bg-white">
-          <h2 className="text-xl font-semibold mb-2">Basic Details</h2>
-          <div className="flex items-center mb-2">
-            <FaUser className="mr-2 text-gray-600" />
-            <span>Name: John Doe</span>
-          </div>
-          <div className="flex items-center mb-2">
-            <FaEnvelope className="mr-2 text-gray-600" />
-            <span>Email: john.doe@example.com</span>
-          </div>
-          <div className="flex items-center mb-2">
-            <FaPhone className="mr-2 text-gray-600" />
-            <span>Phone: +1234567890</span>
-          </div>
+    <div className="flex">
+      {/* Default Sections */}
+      <div className="w-1/3 p-4 border border-gray-300 rounded bg-white shadow-sm">
+        <h2 className="text-xl font-semibold mb-2">Basic Details</h2>
+        <div className="flex items-center mb-2">
+          <FaUser className="mr-2 text-gray-600" /> <span>Name: John Doe</span>
+        </div>
+        <div className="flex items-center mb-2">
+          <FaEnvelope className="mr-2 text-gray-600" /> <span>Email: john.doe@example.com</span>
+        </div>
+        <div className="flex items-center mb-2">
+          <FaPhone className="mr-2 text-gray-600" /> <span>Phone: +1234567890</span>
         </div>
 
-        <div className="p-4 border border-gray-300 rounded bg-white">
-          <h2 className="text-xl font-semibold mb-2">Company Details</h2>
-          <div className="flex items-center mb-2">
-            <FaBuilding className="mr-2 text-gray-600" />
-            <span>Company: ABC Corp</span>
-          </div>
-          <div className="flex items-center mb-2">
-            <FaEnvelope className="mr-2 text-gray-600" />
-            <span>Email: contact@abccorp.com</span>
-          </div>
-          <div className="flex items-center mb-2">
-            <FaPhone className="mr-2 text-gray-600" />
-            <span>Phone: +1987654321</span>
-          </div>
+        <h2 className="text-xl font-semibold mt-4 mb-2">Company Details</h2>
+        <div className="flex items-center mb-2">
+          <FaBuilding className="mr-2 text-gray-600" /> <span>Company: ABC Corp</span>
+        </div>
+        <div className="flex items-center mb-2">
+          <FaEnvelope className="mr-2 text-gray-600" /> <span>Email: contact@abccorp.com</span>
+        </div>
+        <div className="flex items-center mb-2">
+          <FaPhone className="mr-2 text-gray-600" /> <span>Phone: +1987654321</span>
         </div>
       </div>
 
-      {/* Right Side: Navigation and Content */}
-      <div className="flex-1 space-y-4">
-        {/* Navigation Bar */}
-        <div className="p-4 border border-gray-300 rounded bg-gray-100">
-          <div className="flex space-x-4">
-            <button
-              className={`px-4 py-2 rounded ${activeSection === 'timeline' ? 'bg-blue-500 text-white' : 'bg-white text-gray-600'}`}
-              onClick={() => handleSidebarClick('timeline')}
+      {/* Navbar and Function Container */}
+      <div className="w-2/3 p-4">
+        <div className="bg-gray-200 rounded-md p-4 shadow-md mb-4">
+          <div className="bg-gray-300 text-gray-800 flex items-center p-2 rounded-md">
+            <div
+              className={`p-2 cursor-pointer rounded-lg flex items-center transition-all ${activeSection === 'timeline' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
+              onClick={() => handleNavbarClick('timeline')}
             >
-              <FaCalendarAlt className="mr-1" /> Timeline
-            </button>
-            <button
-              className={`px-4 py-2 rounded ${activeSection === 'files' ? 'bg-blue-500 text-white' : 'bg-white text-gray-600'}`}
-              onClick={() => handleSidebarClick('files')}
+              <FaCalendarAlt className="mr-2" /> <span>Timeline</span>
+            </div>
+            
+            <div
+              className={`p-2 cursor-pointer rounded-lg flex items-center transition-all ${activeSection === 'files' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
+              onClick={() => handleNavbarClick('files')}
             >
-              <FaFileAlt className="mr-1" /> Files
-            </button>
-            <button
-              className={`px-4 py-2 rounded ${activeSection === 'notes' ? 'bg-blue-500 text-white' : 'bg-white text-gray-600'}`}
-              onClick={() => handleSidebarClick('notes')}
+              <FaFileAlt className="mr-2" /> <span>Files</span>
+            </div>
+            
+            <div
+              className={`p-2 cursor-pointer rounded-lg flex items-center transition-all ${activeSection === 'notes' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
+              onClick={() => handleNavbarClick('notes')}
             >
-              <FaStickyNote className="mr-1" /> Notes
-            </button>
-            <button
-              className={`px-4 py-2 rounded ${activeSection === 'jobs' ? 'bg-blue-500 text-white' : 'bg-white text-gray-600'}`}
-              onClick={() => handleSidebarClick('jobs')}
+              <FaStickyNote className="mr-2" /> <span>Notes</span>
+            </div>
+            
+            <div
+              className={`p-2 cursor-pointer rounded-lg flex items-center transition-all ${activeSection === 'jobs' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
+              onClick={() => handleNavbarClick('jobs')}
             >
-              <FaBriefcase className="mr-1" /> Jobs
-            </button>
+              <FaBriefcase className="mr-2" /> <span>Jobs</span>
+            </div>
           </div>
-        </div>
 
-        {/* Content Container */}
-        <div className="p-4 border border-gray-300 rounded bg-white">
           {/* Conditionally rendered sections */}
-          {activeSection === 'timeline' && <Timeline />}
-          {activeSection === 'files' && <Files />}
-          {activeSection === 'notes' && <Notes />}
-          {activeSection === 'jobs' && <Jobs />}
+          <div className="p-4 border border-gray-300 rounded bg-white">
+            {activeSection === 'timeline' && <Timeline />}
+            {activeSection === 'files' && <Files />}
+            {activeSection === 'notes' && <Notes />}
+            {activeSection === 'jobs' && <Jobs />}
+          </div>
         </div>
       </div>
     </div>
@@ -95,6 +86,13 @@ const CompanyDetails = () => {
 };
 
 export default CompanyDetails;
+
+
+
+
+
+
+
 
 
 

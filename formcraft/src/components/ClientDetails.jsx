@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import CompanyDetails from './CompanyDetails'; 
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import "../styles/ClientDetails.scss"; 
+import { FaBars, FaHome, FaWpforms, FaUser } from 'react-icons/fa';
 
 const ClientDetails = () => {
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState('timeline');
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -25,8 +25,8 @@ const ClientDetails = () => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '80%',
-    maxHeight: '90vh', 
-    overflowY: 'auto', 
+    maxHeight: '90vh',
+    overflowY: 'auto',
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
@@ -34,46 +34,46 @@ const ClientDetails = () => {
   };
 
   return (
-    <div className="client-details">
-      {/* Main Content Area */}
-      <div className="content-area">
-        <div className="sidebar-section">
-          <div
-            className="sidebar-item"
-            onClick={() => handleSidebarClick('clientDetails')}
-          >
-            Client Details
-          </div>
-          <nav className="small-navbar">
-            <div
-              className={`navbar-item ${activeSection === 'timeline' ? 'active' : ''}`}
-              onClick={() => handleSidebarClick('timeline')}
-            >
-              Timeline
-            </div>
-            <div
-              className={`navbar-item ${activeSection === 'files' ? 'active' : ''}`}
-              onClick={() => handleSidebarClick('files')}
-            >
-              Files
-            </div>
-            <div
-              className={`navbar-item ${activeSection === 'notes' ? 'active' : ''}`}
-              onClick={() => handleSidebarClick('notes')}
-            >
-              Notes
-            </div>
-            <div
-              className={`navbar-item ${activeSection === 'jobs' ? 'active' : ''}`}
-              onClick={() => handleSidebarClick('jobs')}
-            >
-              Jobs
-            </div>
-          </nav>
+    <div className="flex">
+      {/* Sidebar Section */}
+      <div className="w-1/4 p-4 bg-gray-200">
+        <div
+          className="p-2 mb-2 bg-gray-300 rounded cursor-pointer hover:bg-gray-400"
+          onClick={() => handleSidebarClick('clientDetails')}
+        >
+          <FaBars className="inline mr-2" /> Client Details
         </div>
+        <nav className="space-y-2">
+          <div
+            className={`p-2 rounded cursor-pointer hover:bg-gray-300 ${activeSection === 'timeline' ? 'bg-gray-400' : 'bg-gray-200'}`}
+            onClick={() => handleSidebarClick('timeline')}
+          >
+            <FaHome className="inline mr-2" /> Timeline
+          </div>
+          <div
+            className={`p-2 rounded cursor-pointer hover:bg-gray-300 ${activeSection === 'files' ? 'bg-gray-400' : 'bg-gray-200'}`}
+            onClick={() => handleSidebarClick('files')}
+          >
+            <FaWpforms className="inline mr-2" /> Files
+          </div>
+          <div
+            className={`p-2 rounded cursor-pointer hover:bg-gray-300 ${activeSection === 'notes' ? 'bg-gray-400' : 'bg-gray-200'}`}
+            onClick={() => handleSidebarClick('notes')}
+          >
+            <FaUser className="inline mr-2" /> Notes
+          </div>
+          <div
+            className={`p-2 rounded cursor-pointer hover:bg-gray-300 ${activeSection === 'jobs' ? 'bg-gray-400' : 'bg-gray-200'}`}
+            onClick={() => handleSidebarClick('jobs')}
+          >
+            Jobs
+          </div>
+        </nav>
+      </div>
 
-        {/* Dynamic Content Section */}
-        <div className="details-section">
+      {/* Main Content Section */}
+      <div className="w-3/4 p-4">
+        <div className="bg-gray-100 p-4 rounded-md">
           {activeSection === 'timeline' && <Timeline />}
           {activeSection === 'files' && <Files />}
           {activeSection === 'notes' && <Notes />}
@@ -92,6 +92,15 @@ const ClientDetails = () => {
 };
 
 export default ClientDetails;
+
+
+
+
+
+
+
+
+
 
 
 
