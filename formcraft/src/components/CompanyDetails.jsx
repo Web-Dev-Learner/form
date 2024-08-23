@@ -4,6 +4,7 @@ import Files from './Files';
 import Notes from './Notes'; 
 import Timeline from './Timeline'; 
 import Jobs from './Jobs'; 
+import styles from './CompanyDetails.module.scss';
 
 const CompanyDetails = () => {
   const [activeSection, setActiveSection] = useState('timeline');
@@ -13,9 +14,9 @@ const CompanyDetails = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className={styles.container}>
       {/* Default Sections */}
-      <div className="w-full md:w-1/3 p-4 border border-gray-300 rounded bg-white shadow-sm mb-4 md:mb-0">
+      <div className={styles.defaultSection}>
         <h2 className="text-xl font-semibold mb-2">Basic Details</h2>
         <div className="flex items-center mb-2">
           <FaUser className="mr-2 text-gray-600" /> <span>Name: John Doe</span>
@@ -24,12 +25,12 @@ const CompanyDetails = () => {
           <FaEnvelope className="mr-2 text-gray-600" /> <span>Email: john.doe@example.com</span>
         </div>
         <div className="flex items-center mb-2">
-          <FaPhone className="mr-2 text-gray-600" /> <span>Phone: +1234567890</span>
+          <FaPhone className="mr-2 text-gray-100" /> <span>Phone: +1234567890</span>
         </div>
 
         <h2 className="text-xl font-semibold mt-4 mb-2">Company Details</h2>
         <div className="flex items-center mb-2">
-          <FaBuilding className="mr-2 text-gray-600" /> <span>Company: ABC Corp</span>
+          <FaBuilding className="mr-2 text-gray-100" /> <span>Company: ABC Corp</span>
         </div>
         <div className="flex items-center mb-2">
           <FaEnvelope className="mr-2 text-gray-600" /> <span>Email: contact@abccorp.com</span>
@@ -40,40 +41,40 @@ const CompanyDetails = () => {
       </div>
 
       {/* Navbar and Function Container */}
-      <div className="w-full md:w-2/3 p-4">
-        <div className="bg-gray-200 rounded-md p-4 shadow-md mb-4">
-          <div className="bg-gray-300 text-gray-800 flex flex-col md:flex-row p-2 rounded-md">
+      <div className={styles.navbarContainer}>
+        <div className={styles.navbar}>
+          <div className={styles.navbarItems}>
             <div
-              className={`p-2 cursor-pointer rounded-lg flex items-center transition-all mb-2 md:mb-0 md:mr-2 ${activeSection === 'timeline' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
+              className={`${styles.navbarItem} ${activeSection === 'timeline' ? 'bg-gray-100' : 'hover:bg-gray-100'}`}
               onClick={() => handleNavbarClick('timeline')}
             >
               <FaCalendarAlt className="mr-2" /> <span>Timeline</span>
             </div>
             
             <div
-              className={`p-2 cursor-pointer rounded-lg flex items-center transition-all mb-2 md:mb-0 md:mr-2 ${activeSection === 'files' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
+              className={`${styles.navbarItem} ${activeSection === 'files' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
               onClick={() => handleNavbarClick('files')}
             >
               <FaFileAlt className="mr-2" /> <span>Files</span>
             </div>
             
             <div
-              className={`p-2 cursor-pointer rounded-lg flex items-center transition-all mb-2 md:mb-0 md:mr-2 ${activeSection === 'notes' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
+              className={`${styles.navbarItem} ${activeSection === 'notes' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
               onClick={() => handleNavbarClick('notes')}
             >
               <FaStickyNote className="mr-2" /> <span>Notes</span>
             </div>
             
             <div
-              className={`p-2 cursor-pointer rounded-lg flex items-center transition-all ${activeSection === 'jobs' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
+              className={`${styles.navbarItem} ${activeSection === 'jobs' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
               onClick={() => handleNavbarClick('jobs')}
             >
               <FaBriefcase className="mr-2" /> <span>Jobs</span>
             </div>
           </div>
 
-          {/* Conditionally rendered sections */}
-          <div className="p-4 border border-gray-300 rounded bg-white">
+          {/* Fixed Height Container for Sections */}
+          <div className={styles.fixedHeightContainer}>
             {activeSection === 'timeline' && <Timeline />}
             {activeSection === 'files' && <Files />}
             {activeSection === 'notes' && <Notes />}
@@ -86,6 +87,9 @@ const CompanyDetails = () => {
 };
 
 export default CompanyDetails;
+
+
+
 
 
 

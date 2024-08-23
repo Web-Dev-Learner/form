@@ -17,14 +17,16 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '80%',
-    maxHeight: '90vh', 
-    overflowY: 'auto', 
+    width: '80%',  // Adjust width as needed
+    height: '80vh', // Standard height, adjust as needed
+    maxHeight: '80vh',
+    overflowY: 'auto', // Scroll if content overflows
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
     borderRadius: '8px',
   };
+  
 
   return (
     <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
@@ -66,6 +68,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 };
 
 export default Sidebar;
+
 
 
 
