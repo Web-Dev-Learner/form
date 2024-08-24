@@ -4,7 +4,7 @@ import Files from './Files';
 import Notes from './Notes'; 
 import Timeline from './Timeline'; 
 import Jobs from './Jobs'; 
-import styles from './CompanyDetails.module.scss';
+ 
 
 const CompanyDetails = () => {
   const [activeSection, setActiveSection] = useState('timeline');
@@ -14,72 +14,67 @@ const CompanyDetails = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className="company-details-container">
       {/* Default Sections */}
-      <div className={styles.defaultSection}>
-        <h2 className="text-xl font-semibold mb-2">Basic Details</h2>
-        <div className="flex items-center mb-2">
-          <FaUser className="mr-2 text-gray-600" /> <span>Name: John Doe</span>
+      <div className="default-section">
+        <h1>Basic Details</h1>
+        <div className="detail-item">
+          <FaUser /> <span>Name: John Doe</span>
         </div>
-        <div className="flex items-center mb-2">
-          <FaEnvelope className="mr-2 text-gray-600" /> <span>Email: john.doe@example.com</span>
+        <div className="detail-item">
+          <FaEnvelope /> <span>Email: john.doe@example.com</span>
         </div>
-        <div className="flex items-center mb-2">
-          <FaPhone className="mr-2 text-gray-100" /> <span>Phone: +1234567890</span>
+        <div className="detail-item">
+          <FaPhone /> <span>Phone: +1234567890</span>
         </div>
 
-        <h2 className="text-xl font-semibold mt-4 mb-2">Company Details</h2>
-        <div className="flex items-center mb-2">
-          <FaBuilding className="mr-2 text-gray-100" /> <span>Company: ABC Corp</span>
+        <h1>Company Details</h1>
+        <div className="detail-item">
+          <FaBuilding /> <span>Company: ABC Corp</span>
         </div>
-        <div className="flex items-center mb-2">
-          <FaEnvelope className="mr-2 text-gray-600" /> <span>Email: contact@abccorp.com</span>
+        <div className="detail-item">
+          <FaEnvelope /> <span>Email: contact@abccorp.com</span>
         </div>
-        <div className="flex items-center mb-2">
-          <FaPhone className="mr-2 text-gray-600" /> <span>Phone: +1987654321</span>
+        <div className="detail-item">
+          <FaPhone /> <span>Phone: +1987654321</span>
         </div>
       </div>
 
-      {/* Navbar and Function Container */}
-      <div className={styles.navbarContainer}>
-        <div className={styles.navbar}>
-          <div className={styles.navbarItems}>
-            <div
-              className={`${styles.navbarItem} ${activeSection === 'timeline' ? 'bg-gray-100' : 'hover:bg-gray-100'}`}
-              onClick={() => handleNavbarClick('timeline')}
-            >
-              <FaCalendarAlt className="mr-2" /> <span>Timeline</span>
-            </div>
-            
-            <div
-              className={`${styles.navbarItem} ${activeSection === 'files' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
-              onClick={() => handleNavbarClick('files')}
-            >
-              <FaFileAlt className="mr-2" /> <span>Files</span>
-            </div>
-            
-            <div
-              className={`${styles.navbarItem} ${activeSection === 'notes' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
-              onClick={() => handleNavbarClick('notes')}
-            >
-              <FaStickyNote className="mr-2" /> <span>Notes</span>
-            </div>
-            
-            <div
-              className={`${styles.navbarItem} ${activeSection === 'jobs' ? 'bg-gray-400' : 'hover:bg-gray-400'}`}
-              onClick={() => handleNavbarClick('jobs')}
-            >
-              <FaBriefcase className="mr-2" /> <span>Jobs</span>
-            </div>
+      {/* Navbar and Content Section */}
+      <div className="right-section">
+        <div className="navbar">
+          <div
+            className={`navbar-item ${activeSection === 'timeline' ? 'active' : ''}`}
+            onClick={() => handleNavbarClick('timeline')}
+          >
+            <FaCalendarAlt /> <span>Timeline</span>
           </div>
+          <div
+            className={`navbar-item ${activeSection === 'files' ? 'active' : ''}`}
+            onClick={() => handleNavbarClick('files')}
+          >
+            <FaFileAlt /> <span>Files</span>
+          </div>
+          <div
+            className={`navbar-item ${activeSection === 'notes' ? 'active' : ''}`}
+            onClick={() => handleNavbarClick('notes')}
+          >
+            <FaStickyNote /> <span>Notes</span>
+          </div>
+          <div
+            className={`navbar-item ${activeSection === 'jobs' ? 'active' : ''}`}
+            onClick={() => handleNavbarClick('jobs')}
+          >
+            <FaBriefcase /> <span>Jobs</span>
+          </div>
+        </div>
 
-          {/* Fixed Height Container for Sections */}
-          <div className={styles.fixedHeightContainer}>
-            {activeSection === 'timeline' && <Timeline />}
-            {activeSection === 'files' && <Files />}
-            {activeSection === 'notes' && <Notes />}
-            {activeSection === 'jobs' && <Jobs />}
-          </div>
+        {/* Fixed Height Container for Sections */}
+        <div className="content-area">
+          {activeSection === 'timeline' && <Timeline />}
+          {activeSection === 'files' && <Files />}
+          {activeSection === 'notes' && <Notes />}
+          {activeSection === 'jobs' && <Jobs />}
         </div>
       </div>
     </div>
@@ -87,6 +82,29 @@ const CompanyDetails = () => {
 };
 
 export default CompanyDetails;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

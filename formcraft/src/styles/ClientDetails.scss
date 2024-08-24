@@ -1,21 +1,68 @@
-.client-details-popup {
+.company-details-container {
   display: flex;
-  height: 600px; /* Standard fixed height, adjust as needed */
-  
-  .sidebar {
-    width: 20%;
-    background: #f4f4f4;
-    padding: 10px;
-    /* Additional sidebar styles */
-  }
-  
-  .main-content {
-    flex: 1;
-    overflow: hidden;
-    
-    .content-area {
-      height: 100%;
-      overflow-y: auto; /* Allow scrolling if content overflows */
+  height: 100%;
+}
+
+.default-section {
+  width: 35%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+
+  .detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    svg {
+      margin-right: 8px;
+      color: #333;
     }
+
+    span {
+      font-size: 16px;
+      color: #555;
+    }
+  }
+}
+
+.right-section {
+  width: 65%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .navbar {
+    display: flex;
+    margin-bottom: 15px;
+
+    .navbar-item {
+      flex: 1;
+      padding: 10px;
+      margin-right: 5px;
+      background-color: #eee;
+      text-align: center;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+
+      &.active {
+        background-color: #ddd;
+      }
+
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+
+  .content-area {
+    flex: 1;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    overflow-y: auto; 
+    height: 100%; 
   }
 }

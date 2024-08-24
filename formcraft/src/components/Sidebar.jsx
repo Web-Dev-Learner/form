@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FaBars, FaHome, FaWpforms, FaUser } from 'react-icons/fa';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import CompanyDetails from './CompanyDetails';
+import CompanyDetails from './CompanyDetails'; 
 import '../styles/Sidebar.scss';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
@@ -17,16 +17,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: '80%',  // Adjust width as needed
-    height: '80vh', // Standard height, adjust as needed
+    width: '80%',  
+    height: '80vh', 
     maxHeight: '80vh',
-    overflowY: 'auto', // Scroll if content overflows
+    overflowY: 'auto', 
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
     borderRadius: '8px',
   };
-  
 
   return (
     <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
@@ -60,7 +59,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
           <CompanyDetails />
-          <button onClick={handleClose} style={{ position: 'absolute', top: 10, right: 10 }}>X</button>
+          <button
+            onClick={handleClose}
+            style={{ position: 'absolute', top: 10, right: 10 }}
+          >
+            X
+          </button>
         </Box>
       </Modal>
     </aside>
